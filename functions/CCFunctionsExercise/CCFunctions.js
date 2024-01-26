@@ -46,6 +46,17 @@ function makeSpaceLine(numSpaces, numChars) {
     return spaceLine + makeLine(numChars) + spaceLine;
 }
 
+// reverse function
+function reverse(str) {
+    let reversed = '';
+
+    for (let i = 0; i < str.length; i++) {
+        reversed = str[i] + reversed;
+    }
+
+    return reversed;
+}
+
 // makeIsoscelesTriangle
 function makeIsoscelesTriangle(height) {
     let drawIsoscelesTriangle = '';
@@ -55,19 +66,20 @@ function makeIsoscelesTriangle(height) {
     return drawIsoscelesTriangle;
 }
 
-
-// DIAMONDS
-// makeReverseIsoTriangle
-function makeReverseIsoTriangle() {
-    let reversedTriangle = '';
+//makeReverseIsoTriangle
+function makeReverseIsoTriangle(height) {
+    let drawReverseTriangle = '';
+    for (let i = 0; i < height; i++) {
+        drawReverseTriangle += '\n' + makeSpaceLine((height - i -1), (2 * i + 1));
+    }
+    return reverse(drawReverseTriangle);
 }
-
-//console.log(makeReverseIsoTriangle(5));
-
-
+// DIAMONDS
 // makeDiamond
 function makeDiamond(height) {
-    return makeIsoscelesTriangle(height) + '\n' + makeReverseIsoTriangle();
+    let drawDiamond = '';
+    drawDiamond = makeIsoscelesTriangle(height) + '\n' + makeReverseIsoTriangle(height);
+    return drawDiamond;
 }
 
-//console.log(makeDiamond(5));
+console.log(makeDiamond(6));
