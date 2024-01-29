@@ -8,6 +8,22 @@ function checkFuel(level) {
   }
 }
 
+// first anon function
+
+let normalFunction = function (lvl){
+  if (checkFuel(lvl) === 'green') {
+    return lvl - 100001;
+  }
+  else if (checkFuel(lvl) === 'yellow') {
+    return lvl - 50001;
+  }
+  else {
+    return lvl;
+  }
+};
+
+// end 1st anon function
+
 function holdStatus(arr){
   if (arr.length < 7) {
     return `Spaces available: ${7-arr.length}.`;
@@ -21,11 +37,31 @@ function holdStatus(arr){
 let fuelLevel = 200000;
 let cargoHold = ['meal kits', 'space suits', 'first-aid kit', 'satellite', 'gold', 'water', 'AE-35 unit'];
 
+// second anonymous function
+
+let anotherNormalFunction = function(newArray) {
+  newArray = cargoHold.slice(3,5);
+  cargoHold.splice(3,2,'Toenail Clippings','Dirty Laundry');
+  return newArray;
+}
+
+// end 2nd anon function
+
+// 3rd function for irs
+
+let irs = function(confirmFuelLevel, confirmCargoHold) {
+  let array1 = anotherNormalFunction(confirmCargoHold);
+  return `Raided ${normalFunction(fuelLevel)}kg of fuel from the tanks, and stole ${array1[0]} and ${array1[1]} from the cargo hold.`;
+}
+
+// end 3rd function
+
 console.log("Fuel level: " + checkFuel(fuelLevel));
 console.log("Hold status: " + holdStatus(cargoHold));
+//console.log(irs(confirmFuelLevel, confirmCargoHold));
 
 /* Steal some fuel from the shuttle:
- * /
+ */
  
 //a). Define an anonymous function and set it equal to a variable with a normal, non-suspicious name. The function takes one parameter. This will be the fuel level on the shuttle.
 
@@ -35,8 +71,20 @@ console.log("Hold status: " + holdStatus(cargoHold));
 
 //d). Decide where to best place your function call to gather our new fuel.
 
+// let normalFunction = function (lvl){
+//   if (checkFuel(lvl) === 'green') {
+//     return lvl - 100001;
+//   }
+//   else if (checkFuel(lvl) === 'yellow') {
+//     return lvl - 50001;
+//   }
+//   else {
+//     return lvl;
+//   }
+// };
+
 /* Next, liberate some of that glorious cargo.
- * /
+ */
 
 //a). Define another anonymous function with an array as a parameter, and set it equal to another innocent variable.
 
@@ -46,8 +94,14 @@ console.log("Hold status: " + holdStatus(cargoHold));
 
 //d). Don’t get hasty, matey! Remember to test your function.
 
+// let anotherNormalFunction = function(newArray) {
+//   newArray = cargoHold.slice(3,5);
+//   cargoHold.splice(3,2,'Toenail Clippings','Dirty Laundry');
+//   return newArray;
+// }
+
 /* Finally, you need to print a receipt for the accountant. Don’t laugh! That genius knows MATH and saves us more gold than you can imagine.
- * /
+ */
  
 //a). Define a function called irs that can take fuelLevel and cargoHold as arguments.
 	
@@ -55,3 +109,7 @@ console.log("Hold status: " + holdStatus(cargoHold));
 
 //c). Use a template literal to return, "Raided _____ kg of fuel from the tanks, and stole ____ and ____ from the cargo hold."
 
+// let irs = function(confirmFuelLevel, confirmCargoHold) {
+//   let array1 = anotherNormalFunction(confirmCargoHold);
+//   return `Raided ${normalFunction(fuelLevel)}kg of fuel from the tanks, and stole ${array1[0]} and ${array1[1]} from the cargo hold.`;
+// }
