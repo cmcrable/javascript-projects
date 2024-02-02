@@ -1,5 +1,7 @@
 // Code your selectRandomEntry function here:
-
+function selectRandomEntry(arr){
+  return arr[Math.floor(Math.random()*arr.length)];
+ };
 
 // Code your buildCrewArray function here:
 
